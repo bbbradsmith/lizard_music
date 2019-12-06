@@ -1,0 +1,10 @@
+output/*.dbg
+output/*.map
+output/*.o
+output/*.s
+output/*.inc
+output/*.txt
+output/*.log
+demo/cc65/
+FamiTracker.exe
+cmd.exe.lnk
