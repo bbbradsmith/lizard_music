@@ -1,4 +1,8 @@
-
+;
+; Lizard Music Engine demo
+; Brad Smith, 2019
+; http://lizardnes.com
+;
 
 .macpack longbranch
 .include "../music.inc"
