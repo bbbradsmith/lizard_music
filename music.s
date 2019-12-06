@@ -18,7 +18,9 @@
 .exportzp player_pause
 .export player_current_music
 
-.include "../output/data_music.inc"
+.segment "MUSIC"
+
+.include "output/data_music.inc"
 
 .segment "ZEROPAGE"
 

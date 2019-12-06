@@ -13,7 +13,6 @@ MUSIC_INPUT_DIR = "music"
 SFX_INPUT_DIR = "sfx"
 OUTPUT_DIR = "output"
 FAMITRACKER = "FamiTracker.exe"
-MUSIC_SEGMENT = "DATA"
 
 skip_text_export = False
 #skip_text_export = True
@@ -554,8 +553,6 @@ def generate_asm():
     for k in SFX_DICT.keys():
         s += ""+SFX_DICT[k]+(" = $%02X\n" % k)
     s += "\n"
-    s += ".segment \"" + MUSIC_SEGMENT + "\"\n"
-    s += "\n"
     # macros
     for i in range(0,len(all_macros)):
         s += "data_macro_%02X: ; %s %s %d\n" % (
@@ -672,8 +669,6 @@ def generate_asm():
     s += "\n"
     s += "\n"
     # tuning table
-    s += ".segment \"DATA\"\n"
-    s += "\n"
     s += "data_music_tuning_low:\n"
     s += ".byte "
     count12 = 0
