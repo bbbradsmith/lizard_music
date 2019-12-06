@@ -667,51 +667,51 @@ def generate_asm():
     for i in range(0,len(all_sfx)):
         s += ".byte >data_sfx_%02X,\n" % i
     s += "\n"
-    s += "\n"
-    # tuning table
-    s += "data_music_tuning_low:\n"
-    s += ".byte "
-    count12 = 0
-    tuning_note = 9+(3*12) # A-3 = A440
-    tuning_freq = 440.0
-    for i in range(0,96):
-        if (count12 >= 12):
-            count12 = 0
-            s += "\n.byte "
-        freq = tuning_freq * pow(2.0, float(i-tuning_note)/12.0)
-        period = int((1789772.0 / (16.0 * freq)) - 0.5)
-        if period > 0x7FF:
-            period = 0x7FF
-        s += "$%02X," % (period & 0xFF)
-        count12 += 1
-    s += "\n"
-    s += "\n"
-    s += "data_music_tuning_high:\n"
-    s += ".byte "
-    count12 = 0
-    for i in range(0,96):
-        if (count12 >= 12):
-            count12 = 0
-            s += "\n.byte "
-        freq = tuning_freq * pow(2.0, float(i-tuning_note)/12.0)
-        period = int((1789772.0 / (16.0 * freq)) - 0.5)
-        if period > 0x7FF:
-            period = 0x7FF
-        s += "$%02X," % (period >> 8)
-        count12 += 1
-    s += "\n"
-    s += "\n"
-    # multiply table
-    s += "data_music_multiply:\n"
-    for a in range(0,16):
-        s += ".byte "
-        for b in range(0,16):
-            m = (a * b) // 15
-            if a>0 and b>0 and m<1:
-                m = 1
-            s += "$%X," % m
-        s += "\n"
-    s += "\n"
+    #s += "\n"
+    ## tuning table
+    #s += "data_music_tuning_low:\n"
+    #s += ".byte "
+    #count12 = 0
+    #tuning_note = 9+(3*12) # A-3 = A440
+    #tuning_freq = 440.0
+    #for i in range(0,96):
+    #    if (count12 >= 12):
+    #        count12 = 0
+    #        s += "\n.byte "
+    #    freq = tuning_freq * pow(2.0, float(i-tuning_note)/12.0)
+    #    period = int((1789772.0 / (16.0 * freq)) - 0.5)
+    #    if period > 0x7FF:
+    #        period = 0x7FF
+    #    s += "$%02X," % (period & 0xFF)
+    #    count12 += 1
+    #s += "\n"
+    #s += "\n"
+    #s += "data_music_tuning_high:\n"
+    #s += ".byte "
+    #count12 = 0
+    #for i in range(0,96):
+    #    if (count12 >= 12):
+    #        count12 = 0
+    #        s += "\n.byte "
+    #    freq = tuning_freq * pow(2.0, float(i-tuning_note)/12.0)
+    #    period = int((1789772.0 / (16.0 * freq)) - 0.5)
+    #    if period > 0x7FF:
+    #        period = 0x7FF
+    #    s += "$%02X," % (period >> 8)
+    #    count12 += 1
+    #s += "\n"
+    #s += "\n"
+    ## multiply table
+    #s += "data_music_multiply:\n"
+    #for a in range(0,16):
+    #    s += ".byte "
+    #    for b in range(0,16):
+    #        m = (a * b) // 15
+    #        if a>0 and b>0 and m<1:
+    #            m = 1
+    #        s += "$%X," % m
+    #    s += "\n"
+    #s += "\n"
     # done
     s += "; end of file\n"
     # eliminate trailing commas
