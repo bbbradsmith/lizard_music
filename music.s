@@ -311,11 +311,6 @@ music_tick:
 					sbc #1
 					asl
 					asl
-					.ifdef REMIX
-						lda #1
-						sta i ; mark loop has begun
-						jmp @read_loop
-					.endif
 					sta player_order_frame
 					; advance to end of pattern
 					lda player_pattern_length
