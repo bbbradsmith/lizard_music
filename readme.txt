@@ -45,10 +45,6 @@ Note release macros are not supported.
 DPCM is not supported.
 Using pitch and arpeggio macros simultaneously may have a different result than Famitracker.
 
-The maximum number of empty rows between events in a pattern is 127.
-Empty patterns longer than 127 rows may need to be broken up with extra events
-to avoid a "too many skipped rows" error.
-
 Sound effects must be created with speed 1.
 Can only use one channel, either the first square, or the noise channel.
 Will end when a note cut is reached.
@@ -121,6 +117,13 @@ Notes:
 Music and SFX enumerations will be created in alphabetical order.
 Music begins counting at 0, SFX at 1. (A sound called "NONE" is automatically SFX 0.)
 To manually control the order, prefixing the filenames with a number may help.
+
+The maximum number of empty rows between events in a pattern is 127.
+Empty patterns longer than 127 rows may need to be broken up with extra events
+to avoid a "too many skipped rows" error.
+
+Instruments, instrument macros, and patterns that are identical are automatically combined,
+and do not produce extra data. You can review output/music_stats.txt for data size information.
 
 An additional output/data_music_strings.inc is generated with the names, which is used for the demo,
 but may have other diagnostic utility.

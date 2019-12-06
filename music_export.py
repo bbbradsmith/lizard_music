@@ -359,8 +359,8 @@ def pack_ftm(ftm):
     # pack patterns
     packed_patterns = []
     pattern_map = [[],[],[],[]] # note: no DPCM
-    for p in range(0,max_order[c]+1):
-        for c in range(0,4):
+    for c in range(0,4):
+        for p in range(0,max_order[c]+1):
             pat = ftm.pattern[c][p]
             packed_pattern = []
             skip = 0
