@@ -29,9 +29,9 @@ Prerequisites:
 To build the music data:
 
 1. Place FamiTracker.exe (0.4.6) in this folder
-2. Plase music FTM files in the music/ folder.
+2. Place music FTM files in the music/ folder.
    The lowest file alphabetically should be a silent FTM, and will play on startup.
-3. Plase sound effect FTM files in the sfx/ folder.
+3. Place sound effect FTM files in the sfx/ folder.
 4. Run export_music.py to build the exported music data.
 
 Music can use only the following effects:
