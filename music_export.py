@@ -8,6 +8,7 @@ assert sys.version_info[0] == 3, "Python 3 required."
 
 import os
 import datetime
+import subprocess
 
 MUSIC_INPUT_DIR = "music"
 SFX_INPUT_DIR = "sfx"
@@ -850,7 +851,7 @@ for i in range(len(music_files)):
     if not skip_text_export:
         if (not os.path.exists(txt_file)) or (os.path.getmtime(txt_file) < os.path.getmtime(ftm_file)):
             print ("Exported to text.")
-            os.system(FAMITRACKER + " \""+ftm_file+"\" -export \""+txt_file+"\" \""+log_file+"\"")
+            subprocess.run(FAMITRACKER + " \""+ftm_file+"\" -export \""+txt_file+"\" \""+log_file+"\"")
     ftm = FTM()
     if not ftm.load_txt(txt_file):
         error_log += "Load errors for: "+txt_file+"\n"
@@ -876,7 +877,7 @@ for i in range(len(sfx_files)):
     if not skip_text_export:
         if (not os.path.exists(txt_file)) or (os.path.getmtime(txt_file) < os.path.getmtime(ftm_file)):
             print ("Exported to text.")
-            os.system(FAMITRACKER + " \""+ftm_file+"\" -export \""+txt_file+"\" \""+log_file+"\"")
+            subprocess.run(FAMITRACKER + " \""+ftm_file+"\" -export \""+txt_file+"\" \""+log_file+"\"")
     ftm = FTM()
     if not ftm.load_txt(txt_file):
         error_log += "Load errors for: "+txt_file+"\n"
